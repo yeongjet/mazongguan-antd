@@ -8,7 +8,7 @@
         "noImplicitAny": true,
         "esModuleInterop": true,
         "allowSyntheticDefaultImports": true,
-        "target": "es6",
+        "target": "es5",
         "jsx": "react",
         "lib": ["es7", "dom"]
     },
