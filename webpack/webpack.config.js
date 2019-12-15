@@ -1,4 +1,5 @@
 const path = require('path');
+const { babelRule, styleRule } = require('./rule')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -9,23 +10,13 @@ module.exports = {
         extensions: ['.ts', '.tsx', '.js', 'jsx']
     },
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, '../dist'),
         filename: 'bundle.js'
     },
     module: {
         rules: [
-            {
-                test: /\.ts(x?)$/,
-                use: [
-                    {
-                        loader: 'babel-loader'
-                    }
-                ]
-            },
-            {
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader']
-            }
+            ...babelRule,
+            ...styleRule
         ]
     },
     plugins: [
