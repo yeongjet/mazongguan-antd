@@ -1,6 +1,6 @@
-const path = require('path');
+const path = require('path')
 const { babelRule, styleRule } = require('./rule')
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     mode: 'production',
@@ -14,12 +14,7 @@ module.exports = {
         filename: 'bundle.js'
     },
     module: {
-        rules: [
-            ...babelRule,
-            ...styleRule
-        ]
+        rules: [...babelRule, ...styleRule]
     },
-    plugins: [
-        new HtmlWebpackPlugin({template: './src/index.html'})
-    ]
-};
+    plugins: [new HtmlWebpackPlugin({ template: './src/index.html' })]
+}
