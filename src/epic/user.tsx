@@ -3,17 +3,16 @@ import { throwError } from 'rxjs'
 import { switchMap, map, catchError } from 'rxjs/operators'
 import { ajax } from 'rxjs/ajax'
 import { getType } from 'typesafe-actions'
-import { userAction, UserAction, User } from '../action'
-import { UserState } from '../reducer'
+import { userAction, UserAction, UserState } from '../action'
 
 const url = 'https://api.github.com/users/soraping'
 
-export const userEpic: Epic<UserAction, UserAction, UserState> = action$ =>
+export const userEpic: Epic<UserAction, UserAction> = action$ =>
     action$.pipe(
         ofType(getType(userAction.postSession)),
         switchMap(() => {
             return ajax.getJSON(url).pipe(
-                map((res: User) => userAction.setInfosd(res)),
+                map((res: UserState) => userAction.setInfosd(res)),
                 catchError(err => throwError(err))
             )
         })

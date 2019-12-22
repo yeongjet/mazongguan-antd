@@ -1,12 +1,12 @@
 const path = require('path')
-const { babelRule, styleRule } = require('./rule')
+const { babelRule, styleRule, fileRule } = require('./rule')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 
 const fileExtension = ['.ts', '.tsx', '.js', 'jsx']
 
 module.exports = {
-    mode: process.env.NODE_ENV,
+    mode: 'development',
     entry: './src/app.tsx',
     devtool: 'source-map',
     resolve: {
@@ -23,7 +23,12 @@ module.exports = {
         filename: 'bundle.js'
     },
     module: {
-        rules: [...babelRule, ...styleRule]
+        rules: [...babelRule, ...styleRule, ...fileRule]
     },
-    plugins: [new HtmlWebpackPlugin({ template: './src/index.html' })]
+    plugins: [new HtmlWebpackPlugin({ template: './src/index.html' })],
+    devServer: {
+        port: 9030,
+        open: true,
+        hot: true
+    }
 }

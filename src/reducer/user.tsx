@@ -1,15 +1,12 @@
 import { getType } from 'typesafe-actions'
-import { userAction, UserAction, User as UserState } from '../action'
+import { userAction, UserAction, UserState } from '../action'
 
 const initialState = {
     id: null,
     name: ''
 }
 
-export default function userReducer(
-    state: UserState = initialState,
-    action: UserAction
-) {
+const userReducer = (state: UserState = initialState, action: UserAction) => {
     switch (action.type) {
         case getType(userAction.setInfosd):
             const {
@@ -20,3 +17,5 @@ export default function userReducer(
             return state
     }
 }
+
+export default userReducer
