@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { ConnectedRouter } from 'connected-react-router'
 import { HashRouter, Route, Switch } from 'react-router-dom'
 import loadable from '@loadable/component'
 import store, { history } from './store'
-import { Loading } from './component'
+import { Loading } from '@component'
 
 const loadableOptions = { fallback: <Loading /> }
 

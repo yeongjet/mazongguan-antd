@@ -1,5 +1,5 @@
 import { getType } from 'typesafe-actions'
-import { userAction, UserAction, UserState } from '../action'
+import { userAction, UserAction, UserState } from '@action'
 
 const initialState = {
     id: null,

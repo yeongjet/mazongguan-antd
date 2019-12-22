@@ -1,31 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Antd from 'antd'
 import styled from 'styled-components'
-
-// const SubMenu = [
-//     {
-//         key: 'sub-menu-1',
-//         title: '数据魔盒',
-//         icon: 'area-chart',
-//         item: [
-//             {
-//                 key: 'menu-item-1',
-//                 name: '数据概览'
-//             },
-//             {
-//                 key: 'menu-item-2',
-//                 name: '活动数据'
-//             }
-//         ]
-//     }
-// ]
 
 const Icon = Antd.Icon
 const { SubMenu, Item } = Antd.Menu
 
 const Body = styled(Antd.Layout.Sider).attrs({
-    width: 200
+    theme: 'light',
+    collapsible: true
 })`
+    height: 100%;
     background: #ffffff;
 `
 
@@ -40,24 +24,33 @@ const Menu = styled(Antd.Menu).attrs({
 
 const Frame = styled.section`
     height: 100%;
+    min-width: 200px;
     overflow-y: scroll;
     overflow-x: hidden;
     ::-webkit-scrollbar {
         display: none;
     }
 `
+// 需要占最后一个菜单项，否则当菜单在滚动状态时，最后的菜单项会被箭头遮挡，导致无法点击
+const PlaceHolder = styled(Item)`
+    cursor: auto;
+`
 
 export const Sider = () => {
+    const [collapsed, setCollapsed] = useState(false)
+    const toggleCollapsed = () => {
+        setCollapsed(!collapsed)
+    }
     return (
         <Frame>
-            <Body>
+            <Body onCollapse={toggleCollapsed}>
                 <Menu>
                     <SubMenu
                         key="sub-menu-1"
                         title={
                             <span>
                                 <Icon type="area-chart" />
-                                数据魔盒
+                                <span>数据魔盒</span>
                             </span>
                         }
                     >
@@ -69,7 +62,7 @@ export const Sider = () => {
                         title={
                             <span>
                                 <Icon type="barcode" />
-                                一物一码
+                                <span>一物一码</span>
                             </span>
                         }
                     >
@@ -79,7 +72,7 @@ export const Sider = () => {
                     <Item key="menu-item-5">
                         <span>
                             <Icon type="profile" />
-                            订单管理
+                            <span>订单管理</span>
                         </span>
                     </Item>
                     <SubMenu
@@ -87,7 +80,7 @@ export const Sider = () => {
                         title={
                             <span>
                                 <Icon type="project" />
-                                活动管理
+                                <span>活动管理</span>
                             </span>
                         }
                     >
@@ -100,7 +93,7 @@ export const Sider = () => {
                     <Item key="menu-item-11">
                         <span>
                             <Icon type="solution" />
-                            渠道管理
+                            <span>渠道管理</span>
                         </span>
                     </Item>
                     <SubMenu
@@ -108,13 +101,14 @@ export const Sider = () => {
                         title={
                             <span>
                                 <Icon type="layout" />
-                                页面管理
+                                <span>页面管理</span>
                             </span>
                         }
                     >
                         <Menu.Item key="menu-item-12">图文页面</Menu.Item>
                         <Menu.Item key="menu-item-13">小程序首页</Menu.Item>
                     </SubMenu>
+                    <PlaceHolder></PlaceHolder>
                 </Menu>
             </Body>
         </Frame>

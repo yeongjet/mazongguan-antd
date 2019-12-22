@@ -1,4 +1,4 @@
-import { USER } from '../constants'
+import * as USER from '@constant'
 import { createAction, ActionType } from 'typesafe-actions'
 
 export type UserState = { id: number; name: string }

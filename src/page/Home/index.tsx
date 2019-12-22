@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import Antd from 'antd'
 import 'antd/dist/antd.css'
 import { Header } from './Header'
 import { Sider } from './Sider'
 import { Footer } from './Footer'
-
-const { Layout } = Antd
 
 const Body = styled(Antd.Layout)`
     min-height: 100%;
@@ -45,9 +43,9 @@ const Home = () => {
                         <Breadcrumb.Item>App</Breadcrumb.Item>
                     </Breadcrumb>
                     <Content>Content</Content>
+                    <Footer></Footer>
                 </Board>
             </Frame>
-            {/* <Footer></Footer> */}
         </Body>
     )
 }

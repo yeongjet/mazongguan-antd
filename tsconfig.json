@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "rootDirs": ["./src"],
+        "baseUrl": "./src",
+        "esModuleInterop": true,
+        "jsx": "react",
+        "paths": {
+            "@asset/*": ["asset/*"],
+            "@action": ["action"],
+            "@epic": ["epic"],
+            "@constant": ["constant"],
+            "@component": ["component"],
+            "@page": ["page"],
+            "@reducer": ["reducer"]
+        }
+    },
+    "include": ["src/**/*.d.ts", "typings"],
+    "files": ["src/app.tsx"]
+}

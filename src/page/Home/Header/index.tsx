@@ -1,10 +1,7 @@
 import React from 'react'
 import Antd from 'antd'
 import styled from 'styled-components'
-import {
-    headerLogoIcon,
-    headerLogoText
-} from '../../../asset/image/header-logo'
+import { headerLogoIcon, headerLogoText } from '@asset/image/header-logo'
 
 const Logo = styled.section`
     display: flex;
