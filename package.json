@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npx webpack --config webpack/webpack.config.js"
+    "build:dev": "cross-env NODE_ENV=development npx webpack --config webpack/webpack.config.js",
+    "build:prod": "cross-env NODE_ENV=production npx webpack --config webpack/webpack.config.js"
   },
   "author": "",
   "license": "ISC",
@@ -38,15 +39,18 @@
     "@typescript-eslint/parser": "^2.12.0",
     "babel-loader": "^8.0.6",
     "babel-plugin-import": "^1.13.0",
+    "cross-env": "^6.0.3",
     "css-loader": "^3.3.2",
     "eslint": "^6.7.2",
     "eslint-config-prettier": "^6.7.0",
     "eslint-plugin-prettier": "^3.1.2",
     "html-webpack-plugin": "^3.2.0",
+    "postcss-loader": "^3.0.0",
     "prettier": "^1.19.1",
     "source-map-loader": "^0.2.4",
     "style-loader": "^1.0.1",
     "ts-loader": "^6.2.1",
+    "tsconfig-paths-webpack-plugin": "^3.2.0",
     "typescript": "^3.7.3",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10"
